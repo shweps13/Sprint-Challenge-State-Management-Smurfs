@@ -7,12 +7,9 @@ import {
   } from "../actions/index";  
 
   const initialState = {
-    somethingImportant: "",
     quote: [],
     isFetching: false,
-    error: "",
-    deleteRequest: null,
-    deleteit: null
+    error: ""
   };
   
 

@@ -37,8 +37,7 @@ const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
     return {
       quote: state.quote,
       isFetching: state.isFetching,
-      error: state.error,
-      deleteRequest: state.deleteRequest
+      error: state.error
     };
   };
   

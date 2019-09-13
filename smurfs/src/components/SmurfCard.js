@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 const Smurf = (props) => {
     return (
@@ -7,7 +7,7 @@ const Smurf = (props) => {
             <Card.Content>
             <Card.Header>Name: {props.item.name}</Card.Header>
             <Card.Description>Age: {props.item.age} years, Height: {props.item.height}</Card.Description>
-            <button onClick={() => props.deleteBlock(props.item.id)}>Delete</button>
+            <Button onClick={() => props.deleteBlock(props.item.id)}>Delete</Button>
             </Card.Content>
         </Card>
     )
