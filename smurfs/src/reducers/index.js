@@ -1,6 +1,7 @@
 import {
     FETCHING_QUOTE_START,
-    FETCHING_QUOTE_SUCCESS
+    FETCHING_QUOTE_SUCCESS,
+    DELETE_SMURF
   } from "../actions/index";  
 
   const initialState = {
@@ -25,6 +26,11 @@ import {
               isFetching: false,
               quote: action.payload
             };
+        case DELETE_SMURF:
+        return {
+            ...state,
+            quote: state.quote.filter(item => item.id !== action.payload.id)
+        };
     default:
         return state;
     }

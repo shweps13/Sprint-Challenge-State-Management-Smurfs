@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { Loader, Card, Button } from 'semantic-ui-react'
 
-import { getQuote } from '../actions/index'
+import { getQuote, deleteSmurf } from '../actions/index'
 
-const Quotes = ({getQuote, quote, isFetching, error }) => {
+const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
     useEffect(() => {
       // run action creator when the component mounts
       getQuote();
@@ -24,6 +24,7 @@ const Quotes = ({getQuote, quote, isFetching, error }) => {
                     <Card.Content>
                     <Card.Header>{item.name}</Card.Header>
                     <Card.Description>Age: {item.age} years, Height: {item.height}</Card.Description>
+                    <Button basic onClick={deleteSmurf}>Delete</Button>
                     </Card.Content>
                 </Card>
             ))}
@@ -44,5 +45,5 @@ const Quotes = ({getQuote, quote, isFetching, error }) => {
   
   export default connect(
     mapStateToProps,
-    { getQuote }
+    { getQuote, deleteSmurf }
   )(Quotes); // function currying
