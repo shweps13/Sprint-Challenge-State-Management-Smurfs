@@ -14,8 +14,8 @@ const SmurfForm = ({ errors, touched, status }) => {
         }, [status, smurfs]);
   
     return (
-        <div>
-            <h3>Add a Smurf</h3>
+        <div className="SmurfForm">
+            <h2>Add a Smurf</h2>
             <Form>
                 <Field type="text" name="name" placeholder="Name" />
                 {touched.name && errors.name && (

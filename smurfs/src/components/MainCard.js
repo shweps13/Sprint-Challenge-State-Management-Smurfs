@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
+import { Loader, Card } from 'semantic-ui-react'
 
 import { getQuote } from '../actions/index'
 
@@ -10,18 +11,23 @@ const Quotes = ({getQuote, quote, isFetching, error }) => {
     }, [getQuote]);
   
     if (isFetching) {
-      return <h3>Fetching quote...</h3>;
+      return <div><h3>Fetching quote...</h3>
+      <Loader active inline='centered' /></div>;
     }
     
     return (
-      <div>
-        <h2>Here is results:</h2>
-        {quote.map(item => (
-            <div key={item.id}>
-                <h3>{item.name}</h3>
-                <p>Age: {item.age} years, Height: {item.height}</p>
-            </div>
-          ))}
+      <div className="MainCard">
+        <h2>Check the results:</h2>
+        <Card.Group centered>
+            {quote.map(item => (
+                <Card key={item.id}>
+                    <Card.Content>
+                    <Card.Header>{item.name}</Card.Header>
+                    <Card.Description>Age: {item.age} years, Height: {item.height}</Card.Description>
+                    </Card.Content>
+                </Card>
+            ))}
+        </Card.Group>
           <button onClick={getQuote}>Refresh</button>
       </div>
     );
