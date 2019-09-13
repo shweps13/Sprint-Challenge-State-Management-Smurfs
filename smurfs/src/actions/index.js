@@ -10,7 +10,7 @@ export const getQuote = () => dispatch => {
   axios
     .get(`http://localhost:3333/smurfs`)
     .then(res => { 
-        console.log(res.data);
+        console.log("Received data from API: ", res.data);
       dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data });
     })
     .catch(err => {

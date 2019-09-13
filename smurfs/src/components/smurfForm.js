@@ -55,7 +55,7 @@ const SmurfForm = ({ errors, touched, status }) => {
         .post('http://localhost:3333/smurfs', values)
         .then(res => {
           setStatus(values);
-          console.log(res);
+          console.log("Form sent succesfully!", res);
         })
         .catch(err => console.log(err.response));
     }
