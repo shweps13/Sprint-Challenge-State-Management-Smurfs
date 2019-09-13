@@ -1,6 +1,8 @@
 
   const initialState = {
-    somethingImportant: ""
+    somethingImportant: "",
+    quote: [],
+    isFetching: false
   };
   
 
