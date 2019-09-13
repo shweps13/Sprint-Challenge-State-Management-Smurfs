@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import { Loader, Card, Button } from 'semantic-ui-react'
 
 import { getQuote, deleteSmurf } from '../actions/index'
+import SmurfCard from '../components/SmurfCard'
 
 const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
     useEffect(() => {
@@ -10,6 +11,10 @@ const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
       getQuote();
     }, [getQuote]);
   
+    const deleteBlock = (id) => {
+        deleteSmurf(id);
+    }
+
     if (isFetching) {
       return <div><h3>Fetching quote...</h3>
       <Loader active inline='centered' /></div>;
@@ -19,17 +24,10 @@ const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
       <div className="MainCard">
         <h2>Check the results:</h2>
         <Card.Group centered>
-            {quote.map(item => (
-                <Card key={item.id}>
-                    <Card.Content>
-                    <Card.Header>{item.name}</Card.Header>
-                    <Card.Description>Age: {item.age} years, Height: {item.height}</Card.Description>
-                    <Button basic onClick={deleteSmurf}>Delete</Button>
-                    </Card.Content>
-                </Card>
-            ))}
+        {quote.map(item => <SmurfCard item={item} key={item.id} deleteBlock={deleteBlock} />)}
         </Card.Group>
         <Button secondary onClick={getQuote}> Refresh</Button>
+
       </div>
     );
   };
@@ -39,7 +37,8 @@ const Quotes = ({deleteSmurf, getQuote, quote, isFetching, error }) => {
     return {
       quote: state.quote,
       isFetching: state.isFetching,
-      error: state.error
+      error: state.error,
+      deleteRequest: state.deleteRequest
     };
   };
   

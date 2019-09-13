@@ -1,14 +1,18 @@
 import {
     FETCHING_QUOTE_START,
     FETCHING_QUOTE_SUCCESS,
-    DELETE_SMURF
+    DELETE_SMURF,
+    UPDATE_REQUEST,
+    DELETE_SMURF_SUCCESS
   } from "../actions/index";  
 
   const initialState = {
     somethingImportant: "",
     quote: [],
     isFetching: false,
-    error: ""
+    error: "",
+    deleteRequest: null,
+    deleteit: null
   };
   
 
@@ -27,10 +31,16 @@ import {
               quote: action.payload
             };
         case DELETE_SMURF:
-        return {
-            ...state,
-            quote: state.quote.filter(item => item.id !== action.payload.id)
-        };
+            return {
+                ...state,
+                error: ""
+            };
+        case DELETE_SMURF_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                quote: action.payload
+            };
     default:
         return state;
     }
