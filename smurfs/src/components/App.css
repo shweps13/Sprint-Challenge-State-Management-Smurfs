@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -22,7 +17,33 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Header {
+  background-color: rgb(83, 43, 226);
+  color: white !important;
+  padding: 3% 0;
+}
+
+.SmurfForm, .MainCard{
+  background-color: rgb(252, 252, 252);
+  padding: 2% 0;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.SmurfForm {
+  width: 80%;
+  margin: 2% 10%;
+}
+
+.MainCard {
+  width: 70%;
+  margin: 2% 15%;
+}
+
+.MainCard Button{
+ margin-top: 3% !important;
+}
+
+.SmurfForm Button {
+  margin-left: 3% !important;
 }
