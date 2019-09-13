@@ -22,7 +22,7 @@ const SmurfForm = ({ errors, touched, status }) => {
                     <p className="error">{errors.name}</p>
                 )}
         
-                <Field type="text" name="age" placeholder="Age" />
+                <Field type="number" name="age" placeholder="Age" />
                 {touched.age && errors.age && <p className="error">{errors.age}</p>}
 
                 <Field type="text" name="height" placeholder="Height" />
