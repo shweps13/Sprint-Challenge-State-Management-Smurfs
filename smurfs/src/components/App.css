@@ -40,6 +40,10 @@
   margin: 2% 15%;
 }
 
-.MainCard button{
- margin-top: 3%;
+.MainCard Button{
+ margin-top: 3% !important;
+}
+
+.SmurfForm Button {
+  margin-left: 3% !important;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { Loader, Card } from 'semantic-ui-react'
+import { Loader, Card, Button } from 'semantic-ui-react'
 
 import { getQuote } from '../actions/index'
 
@@ -28,7 +28,7 @@ const Quotes = ({getQuote, quote, isFetching, error }) => {
                 </Card>
             ))}
         </Card.Group>
-          <button onClick={getQuote}>Refresh</button>
+        <Button secondary onClick={getQuote}> Refresh</Button>
       </div>
     );
   };

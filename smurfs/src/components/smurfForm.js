@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { Button } from 'semantic-ui-react'
 
 
 const SmurfForm = ({ errors, touched, status }) => {
@@ -28,7 +29,7 @@ const SmurfForm = ({ errors, touched, status }) => {
                 <Field type="text" name="height" placeholder="Height" />
                 {touched.height && errors.height && <p className="error">{errors.height}</p>}
 
-                <button type="submit">Submit!</button>
+                <Button primary type="submit">Submit!</Button>
             </Form>
         </div>
 
