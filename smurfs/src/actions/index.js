@@ -6,15 +6,14 @@ export const FETCHING_QUOTE_FAILURE = "FETCHING_QUOTE_FAILURE";
 
 
 export const getQuote = () => dispatch => {
-//   dispatch({ type: FETCHING_QUOTE_START });
-//     // console.log("axios props", props)
-//   axios
-//     .put(`http://api.languagelayer.com/detect?access_key=${props.access_key}&query=${props.request}`)
-//     // .then(res => console.log(res.data.results))
-//     .then(res => {
-//       dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data });
-//     })
-//     .catch(err => {
-//       dispatch({ type: FETCHING_QUOTE_FAILURE, payload: err });
-//     });
+  dispatch({ type: FETCHING_QUOTE_START });
+  axios
+    .get(`http://localhost:3333/smurfs`)
+    .then(res => { 
+        console.log(res.data);
+      dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: FETCHING_QUOTE_FAILURE, payload: err.response });
+    });
 };
